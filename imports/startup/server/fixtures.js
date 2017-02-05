@@ -1,34 +1,38 @@
 // Fill the DB with example data on startup
 
 import { Meteor } from 'meteor/meteor';
-import { Links } from '../../api/links/links.js';
+import { Products } from '/imports/api/products/products.js';
 
 Meteor.startup(() => {
-  // if the Links collection is empty
-  if (Links.find().count() === 0) {
+  // if the Products collection is empty
+  if (Products.find().count() === 0) {
     const data = [
       {
-        title: 'Do the Tutorial',
-        url: 'https://www.meteor.com/try',
-        createdAt: new Date(),
+        name: 'Item-1',
+        description: "",
+        features: ['attribute-1','attribute-2','attribute-3','attribute-4'],
+        created: new Date(),
       },
       {
-        title: 'Follow the Guide',
-        url: 'http://guide.meteor.com',
-        createdAt: new Date(),
+        name: 'Item-2',
+        description: "",
+        features: ['attribute-1','attribute-2','attribute-3','attribute-4'],
+        created: new Date(),
       },
       {
-        title: 'Read the Docs',
-        url: 'https://docs.meteor.com',
-        createdAt: new Date(),
+        name: 'Item-3',
+        description: "",
+        features: ['attribute-1','attribute-2','attribute-3','attribute-4'],
+        created: new Date(),
       },
       {
-        title: 'Discussions',
-        url: 'https://forums.meteor.com',
-        createdAt: new Date(),
+        name: 'Item-4',
+        description: "",
+        features: ['attribute-1','attribute-2','attribute-3','attribute-4'],
+        created: new Date(),
       },
     ];
 
-    data.forEach(link => Links.insert(link));
+    data.forEach(product => Products.insert(product));
   }
 });
