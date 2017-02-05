@@ -4,7 +4,7 @@ A fun code challenge to build out a simple checkout UX.
 
 ## Installed NPM Packages:
 - **react-dom**: adds ReactJS compabilities within a Meteor app
-- **react-dom**: Flow Router for ReactJS Meteor app
+- **react-mounter**: Flow Router for ReactJS Meteor app
 - **meteor-random**: Love them randomized hex strings. :)
 
 ## How we can run it
