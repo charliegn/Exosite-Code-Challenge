@@ -1,7 +1,8 @@
 import React, { Component } from 'react';
 import _ from 'underscore';
+import { createContainer } from 'meteor/react-meteor-data';
 
-export class Market extends Component {
+class Market extends Component {
   constructor(props) {
     super(props);
     this.state = { };
@@ -9,9 +10,11 @@ export class Market extends Component {
 
   render() {
     return (
-      <div className="conMarket">
+      <div id="conMarket">
         <h1>Your Market is here</h1>
       </div>
     );
   }
 }
+
+export default createContainer(() => ({}), Market);

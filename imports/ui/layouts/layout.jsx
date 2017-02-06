@@ -12,7 +12,10 @@ class Layout extends Component {
 
   render() {
     return (
-      <div>
+      <div id="conFullContainer">
+        <header>
+          <h1>Welcome to Buymart</h1>
+        </header>
         <Navigation />
         <main>{this.props.content}</main>
       </div>

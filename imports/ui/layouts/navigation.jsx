@@ -1,9 +1,8 @@
-import React, { Component, PropTypes } from 'react';
+import React, { Component } from 'react';
 import { Meteor } from 'meteor/meteor';
 import { FlowRouter } from 'meteor/kadira:flow-router';
-import { createContainer } from 'react-meteor-data';
 
-class Navigation extends Component {
+export default class Navigation extends Component {
   constructor(props) {
     super(props);
     this.state = {};
@@ -12,23 +11,14 @@ class Navigation extends Component {
   render() {
 
     return (
-      <div className="nav">
+      <nav>
         <ul>
-          <li>Nav Item 1</li>
-          <li>Nav Item 2</li>
-          <li>Nav Item 3</li>
+          <li><a href="#">Home</a></li>
+          <li><a href="market" className="active">Market</a></li>
+          <li><a href="#">Help</a></li>
         </ul>
-      </div>
+      </nav>
     );
   }
 }
 
-// Navigation.propTypes = {
-//   content: PropTypes.object,
-//   navName: PropTypes.string,
-// };
-
-/******************************************************************
-// Data Container
-******************************************************************/
-export default createContainer(() => ({}), Navigation);
