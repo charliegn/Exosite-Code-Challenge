@@ -1,5 +1,4 @@
 import React, { Component, PropTypes } from 'react';
-import { ButtonToolbar, Button } from 'react-bootstrap';
 import { createContainer } from 'meteor/react-meteor-data';
 
 class ProductItem extends Component {
@@ -14,9 +13,7 @@ class ProductItem extends Component {
         <h3>{this.props.name}</h3>
         <h4>{this.props.price}</h4>
 
-        <ButtonToolbar>
-          <Button bsStyle="success">Buy</Button>
-        </ButtonToolbar>
+        <button className="btn btn-success">Buy</button>
       </div>
     );
   }
@@ -27,7 +24,7 @@ ProductItem.propTypes = {
   content: PropTypes.object,
   sku: PropTypes.string,
   name: PropTypes.string,
-  price: PropTypes.float,
+  price: PropTypes.number,
   description: PropTypes.string,
   features: PropTypes.array,
 };
