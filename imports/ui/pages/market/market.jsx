@@ -15,18 +15,21 @@ class Market extends Component {
     return (
       <div id="conMarket">
         
-        {this.props.productList.map((p) => {
-          return (
-            <ProductItem
-              key={p._id}
-              name={p.name}
-              price={p.price}
-              description={p.description}
-              features={p.features}
-            />
-          );
-        })}
+        <div id="conProductList" className="clearfix">
+          {this.props.productList.map((p, i) => {
+            return (
+              <ProductItem
+                sku={p._id}
+                key={`${p._id}_{i}`}
+                name={p.name}
+                price={p.price}
+                features={p.features}
+              />
+            );
+          })}
+        </div>
 
+        <p className="text-center">All products come with a 30-day money back guarantee</p>
       </div>
     );
   }
@@ -42,9 +45,6 @@ export default createContainer(() => {
   if (!loading) {
     productList = Products.find().fetch();
   }
-
-
-  console.log('products = ', productList);
 
   return {
     loading,

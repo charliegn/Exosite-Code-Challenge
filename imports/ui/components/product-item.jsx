@@ -1,19 +1,31 @@
 import React, { Component, PropTypes } from 'react';
-import { createContainer } from 'meteor/react-meteor-data';
 
-class ProductItem extends Component {
+
+export default class ProductItem extends Component {
   constructor(props) {
     super(props);
     this.state = { };
+
+    this.buyItem = this.buyItem.bind(this);
+  }
+
+  buyItem(e) {    
+
+    FlowRouter.go(`/shipping-form/${this.props.sku}`);
+
   }
 
   render() {
     return (
       <div className="conProductItem">
-        <h3>{this.props.name}</h3>
-        <h4>{this.props.price}</h4>
+        <h3>{ this.props.name }</h3>
+        <h4>{ this.props.price }</h4>
 
-        <button className="btn btn-success">Buy</button>
+        <ul>
+          { this.props.features.map((f, index) => (<li key={index}>{f}</li>)) }
+        </ul>
+
+        <button className="btn btn-success center-block" onClick={this.buyItem}>Buy</button>
       </div>
     );
   }
@@ -21,13 +33,10 @@ class ProductItem extends Component {
 
 
 ProductItem.propTypes = {
-  content: PropTypes.object,
   sku: PropTypes.string,
   name: PropTypes.string,
   price: PropTypes.number,
-  description: PropTypes.string,
   features: PropTypes.array,
 };
 
 
-export default createContainer(() => ({}), ProductItem);

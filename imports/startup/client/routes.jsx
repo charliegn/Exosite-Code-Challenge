@@ -4,9 +4,7 @@ import { mount } from 'react-mounter';
 
 // Import needed templates
 import { Layout } from '/imports/ui/layouts/';
-import Market from '/imports/ui/pages/market/market.jsx';
-// import ShoppingCart from '/imports/ui/pages/market/shopping-cart.jsx';
-// import ThankYou from '/imports/ui/pages/market/thank-you.jsx';
+import { Market, ShippingForm } from '/imports/ui/pages/market/';
 
 
 // Set up all routes in the app
@@ -24,12 +22,13 @@ FlowRouter.route('/market', {
   },
 });
 
-// FlowRouter.route('/shopping-cart', {
-//   name: 'App.cart',
-//   action() {
-//     mount(Layout, { content: <ShoppingCart /> });
-//   },
-// });
+FlowRouter.route('/shipping-form/:itemSku', {
+  name: 'App.shipping_form',
+  action({ itemSku }) {
+  	console.log('itemSku', itemSku);
+    mount(Layout, { content: <ShippingForm sku={itemSku} /> });
+  },
+});
 
 // FlowRouter.route('/thank-you', {
 //   name: 'App.shipping',

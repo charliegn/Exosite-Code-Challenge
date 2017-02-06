@@ -1,6 +1,6 @@
-import { Market } from './market.jsx';
-// import { ShoppingCart } from './shopping-cart.jsx';
-// import { ThankYou } from './thank-you.jsx';
+import Market from './market.jsx';
+import ShippingForm from './shipping-form.jsx';
 
-// export { Market, ShoppingCart, ThankYou };
+
+export { Market, ShippingForm };
 export default { Market };
