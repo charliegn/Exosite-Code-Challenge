@@ -1,5 +1,5 @@
 import React, { Component, PropTypes } from 'react';
-
+import { Session } from 'meteor/session'
 
 export default class ProductItem extends Component {
   constructor(props) {
@@ -11,18 +11,25 @@ export default class ProductItem extends Component {
 
   buyItem(e) {    
 
-    FlowRouter.go(`/shipping-form/${this.props.sku}`);
+    // Using Session here since this is a basic implementation for
+    // demonstration purposes. Would use a database collection tied
+    // to a user account or client-side mini-mongo storage or something
+    // like that it for a fuller solution.
+    Session.set('itemSku', this.props.sku);
+
+    FlowRouter.go('/shipping-form/');
 
   }
 
   render() {
     return (
       <div className="conProductItem">
-        <h3>{ this.props.name }</h3>
-        <h4>{ this.props.price }</h4>
+        <h3>{this.props.name}</h3>
+        <h4>${this.props.price}</h4>
 
+        <p>Features:</p>
         <ul>
-          { this.props.features.map((f, index) => (<li key={index}>{f}</li>)) }
+          {this.props.features.map((f, index) => (<li key={index}>{f}</li>))}
         </ul>
 
         <button className="btn btn-success center-block" onClick={this.buyItem}>Buy</button>

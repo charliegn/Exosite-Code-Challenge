@@ -11,10 +11,23 @@
 	top: @top;
 }
 
+.boxContainer(@width) {
+	background: #fbfbfb;
+	border: 1px solid #333333;
+	border-radius: 12px;
+	box-shadow: 1px 1px 3px #666666;
+	float: left;
+	margin: 10px auto;
+	padding: 10px;
+	position: relative;
+	width: @width;
+}
+
 #conFullContainer {
 	.pos-a(0, 0, 0, 0);
 
-  background: linear-gradient(@bgStartColor 0%, @bgMidColor 50%, @bgEndColor 100%);
+	background: #cccccc;
+  // background: linear-gradient(@bgStartColor 0%, @bgMidColor 50%, @bgEndColor 100%);
 
 
 	header {
@@ -37,7 +50,8 @@
 	nav {
 		.pos-a(75px, inherit, 0, 0);
 		
-		background: @bgMidColor;
+		// background: @bgMidColor;
+		background: #999999;
 		box-shadow: 1px -1px 4px #424242;
 		float: left;
 		top: 75px;
@@ -57,7 +71,8 @@
 
 					border-right: 10px solid transparent;
 
-      		color: #ffffff;
+      		// color: #ffffff;
+      		color: #000000;
       		font: 1.5em 'Tahoma';
       		display: block;
 
@@ -94,9 +109,9 @@
 			@horzSpacing: 30px;
 			.pos-a(@vertSpacing, @horzSpacing, @vertSpacing, @horzSpacing);
 
-			background: #fbfbfb;
-			border: 1px #333333 solid;
-			border-radius: 8px;
+			// background: #fbfbfb;
+			// border: 1px #333333 solid;
+			// border-radius: 8px;
 			overflow: scroll;
 			padding: 15px;
 

@@ -6,16 +6,23 @@
 		display: flex;
 		
 		.conProductItem {
-			border: 1px solid #333333;
-			border-radius: 4px;
-			flex-grow: 4;
-			float: left;
-			margin: 10px 20px;
-			padding: 10px;
-			width: 200px;
+			.boxContainer(200px);
 
-			ul {
-				padding: 0 20px;
+			h3, h4 { text-align: center; }
+
+			p { 
+				border-bottom: 1px solid #333333;
+				font-weight: bold;
+				padding-left: 2px;
+			}
+
+			ul { margin-bottom: 50px; padding: 0 20px; }
+
+			button {
+			  position: absolute;
+			  bottom: 10px;
+			  width: 75px;
+			  left: calc(~'50% - 37.5px');
 			}
 
 		}/*-- /.conProductItem --*/
