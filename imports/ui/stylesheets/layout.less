@@ -13,7 +13,7 @@
 
 .boxContainer(@width) {
 	background: #fbfbfb;
-	border: 1px solid #333333;
+	border: 3px solid #333333;
 	border-radius: 12px;
 	box-shadow: 1px 1px 3px #666666;
 	float: left;
@@ -32,6 +32,7 @@
 
 	header {
 		background: #3b679e;
+		border-bottom: 1px solid #333333;
 		position: relative;
 		height: 75px;
 		z-index: 15;
@@ -66,12 +67,13 @@
       li {
 
       	a {
-					.lnkHoverBorder(){
-					}
 
-					border-right: 10px solid transparent;
+					@border: 1px solid transparent;
+					@hoverActiveBorder: #CCCCCC;
+					
+					border-top: @border;
+					border-bottom: @border;
 
-      		// color: #ffffff;
       		color: #000000;
       		font: 1.5em 'Tahoma';
       		display: block;
@@ -82,8 +84,9 @@
       		text-decoration: none;
       
 					.lnkHoverActive() {
-						border-right-color: lighten(@bgMidColor, 50%);
-						background: darken(@bgMidColor, 15%);						
+						border-top-color: @hoverActiveBorder;
+						border-bottom-color: @hoverActiveBorder;
+						background: lighten(@bgMidColor, 10%);
 					}
 
 					&:hover,
@@ -101,6 +104,7 @@
 
 	main {
 		.pos-a(75px, 0, 0, @leftSideSpacing);
+		overflow: auto;
 		padding: 25px;
 
 	
