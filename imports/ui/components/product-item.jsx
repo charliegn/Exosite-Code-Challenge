@@ -19,7 +19,7 @@ export default class ProductItem extends Component {
 
   render() {
     return (
-      <div className="conProductItem">
+      <div className="conProductItem animated bounceInLeft">
         <h3>{this.props.name}</h3>
         <h4>${this.props.price}</h4>
 

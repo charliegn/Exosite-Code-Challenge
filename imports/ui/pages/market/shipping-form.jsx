@@ -66,7 +66,7 @@ class ShippingForm extends Component {
   render() {
     if (this.props.loading) return null;
     return (
-      <div id="conShippingForm">
+      <div id="conShippingForm" className="animated fadeInDown">
 
         <div id="conCart">
           <h3>{this.props.itemInfo.name}</h3>
