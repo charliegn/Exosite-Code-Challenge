@@ -25,6 +25,8 @@ A fun code challenge to build out a simple checkout UX.
 3. Install necessary npm packages – `meteor npm install`
 4. Run application – `meteor`
 
+NOTE: The data is bootstrapped in when the app first runs.  This bootstrapping process is setup in `/imports/startup/server/fixtures.js` and the Collection is created in `/imports/api/products/products.js`.
+
 ## Describe any design choices and tools
 - **Meteor**:  I went Meteor for 2 reasons:
   1. There's a ton of out of the box wiring that Meteor does for you which is perfect with you're trying to code up a code challenge in one day that's backed by a database (MongoDB).
