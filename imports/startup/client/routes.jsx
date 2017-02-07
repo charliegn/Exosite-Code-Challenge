@@ -4,7 +4,7 @@ import { mount } from 'react-mounter';
 
 // Import needed templates
 import { Layout } from '/imports/ui/layouts/';
-import { Market, ShippingForm } from '/imports/ui/pages/market/';
+import { Market, ShippingForm, ThankYou } from '/imports/ui/pages/market/';
 
 
 // Set up all routes in the app
@@ -23,12 +23,19 @@ FlowRouter.route('/market', {
   },
 });
 
-FlowRouter.route('/shipping-form/', {
+FlowRouter.route('/shipping-form', {
   name: 'App.shipping_form',
   action() {
-  	if (!Session.get('itemSku')) {
-			FlowRouter.go('/market');
-  	}
+    if (!Session.get('itemSku')) {
+      FlowRouter.go('/market');
+    }
     mount(Layout, { content: <ShippingForm sku={Session.get('itemSku')} /> });
+  },
+});
+
+FlowRouter.route('/thank-you', {
+  name: 'App.thank_you',
+  action() {
+    mount(Layout, { content: <ThankYou name={Session.get('customer_name')} /> });
   },
 });

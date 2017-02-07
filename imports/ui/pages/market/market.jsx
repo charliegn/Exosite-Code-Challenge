@@ -1,15 +1,9 @@
 import React, { Component } from 'react';
-import _ from 'underscore';
 import { createContainer } from 'meteor/react-meteor-data';
 import { Products } from '/imports/api/products/products.js';
 import ProductItem from '/imports/ui/components/product-item.jsx';
 
 class Market extends Component {
-  constructor(props) {
-    super(props);
-    this.state = { };
-  }
-
   render() {
     if (this.props.loading) return null;
     return (
@@ -39,7 +33,6 @@ export default createContainer(() => {
 
   let productHandle = Meteor.subscribe('products.all');
   let productList;
-
   let loading = !productHandle.ready();
 
   if (!loading) {
@@ -50,6 +43,4 @@ export default createContainer(() => {
     loading,
     productList
   }
-
-
 }, Market);

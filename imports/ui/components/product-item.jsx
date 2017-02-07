@@ -4,8 +4,6 @@ import { Session } from 'meteor/session'
 export default class ProductItem extends Component {
   constructor(props) {
     super(props);
-    this.state = { };
-
     this.buyItem = this.buyItem.bind(this);
   }
 
@@ -16,9 +14,7 @@ export default class ProductItem extends Component {
     // to a user account or client-side mini-mongo storage or something
     // like that it for a fuller solution.
     Session.set('itemSku', this.props.sku);
-
-    FlowRouter.go('/shipping-form/');
-
+    FlowRouter.go('/shipping-form');
   }
 
   render() {
@@ -37,7 +33,6 @@ export default class ProductItem extends Component {
     );
   }
 }
-
 
 ProductItem.propTypes = {
   sku: PropTypes.string,

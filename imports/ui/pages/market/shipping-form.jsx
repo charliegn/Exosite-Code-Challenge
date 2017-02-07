@@ -11,6 +11,7 @@ class ShippingForm extends Component {
     };
 
     this.updateShipping = this.updateShipping.bind(this);
+    this.confirmForm = this.confirmForm.bind(this);
 
   }
 
@@ -44,12 +45,29 @@ class ShippingForm extends Component {
     return ( (this.state.shippingCost + this.props.itemInfo.price).toFixed(2) );
   }
 
+  confirmForm(e) {
+
+    let isValid = true;
+    const formElem = document.getElementById('contact-form').elements;
+
+    _.find(formElem, function(elem) {
+      if (elem.hasAttribute('required') && elem.value === '') {
+        isValid = false;
+        return true
+      }
+    });
+
+    if (isValid) {
+      Session.set('customer_name', formElem.customer_name.value)
+      FlowRouter.go('/thank-you');
+    }
+  }
 
   render() {
     if (this.props.loading) return null;
     return (
       <div id="conShippingForm">
-        
+
         <div id="conCart">
           <h3>{this.props.itemInfo.name}</h3>
           <p>Sub-total: ${this.props.itemInfo.price}</p>
@@ -59,12 +77,12 @@ class ShippingForm extends Component {
         </div>
 
         <div id="conContactInfo">
-          <form name="contact-form">
-            <p><input name="name" type="text" placeholder="Name" /></p>
-            <p><input name="address" type="text" placeholder="Street" /></p>
-            <p>
-              <input name="city" type="text" placeholder="City" />
-              <select name="state" onChange={this.updateShipping}>
+          <form id="contact-form" className="form-inline">
+            <div><input name="customer_name" className="form-control full-width" type="text" placeholder="Name" required /></div>
+            <div><input name="address" className="form-control full-width" type="text" placeholder="Street" required /></div>
+            <div className="form-group">
+              <input name="city" className="form-control" type="text" placeholder="City" required />
+              <select name="state" className="form-control" onChange={this.updateShipping} required >
                 <option value="">State</option>
                 <option value="AL">AL</option>
                 <option value="AK">AK</option>
@@ -118,10 +136,10 @@ class ShippingForm extends Component {
                 <option value="WI">WI</option>
                 <option value="WY">WY</option>
               </select>
-            </p>
-            <p><input name="zipcode" type="text" placeholder="Zip Code" /></p>
+            </div>
+            <div><input name="zipcode" className="form-control full-width" type="text" placeholder="Zip Code" required /></div>
 
-            <button className="btn btn-success pull-right">Confirm</button>
+            <button className="btn btn-success pull-right" onClick={this.confirmForm}>Confirm</button>
           </form>
         </div>
 
@@ -139,7 +157,6 @@ export default createContainer(({ sku }) => {
 
   const itemHandle = Meteor.subscribe('products.item', sku);
   let itemInfo;
-
   let loading = !itemHandle.ready();
 
   if (!loading) {
@@ -150,6 +167,4 @@ export default createContainer(({ sku }) => {
     loading,
     itemInfo
   }
-
-
 }, ShippingForm);
